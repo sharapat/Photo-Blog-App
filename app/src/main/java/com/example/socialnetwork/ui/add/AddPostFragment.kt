@@ -1,4 +1,4 @@
-package com.example.socialnetwork.ui.post
+package com.example.socialnetwork.ui.add
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import com.example.socialnetwork.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_post.*
+import kotlinx.android.synthetic.main.fragment_add_post.*
 
-class PostFragment : Fragment(R.layout.fragment_post) {
+class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     private val mAuth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
