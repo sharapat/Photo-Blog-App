@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.example.socialnetwork.ui.post.PostFragment
+import com.example.socialnetwork.ui.add.AddPostFragment
+import com.example.socialnetwork.ui.post.GetPostFragment
 import com.example.socialnetwork.ui.profile.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -43,7 +43,12 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.itemAdd -> {
-                    val fragment = PostFragment()
+                    val fragment = AddPostFragment()
+                    changeFragment(fragment, R.id.fragmentContainer)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.itemAllPost -> {
+                    val fragment = GetPostFragment()
                     changeFragment(fragment, R.id.fragmentContainer)
                     return@setOnNavigationItemSelectedListener true
                 }
