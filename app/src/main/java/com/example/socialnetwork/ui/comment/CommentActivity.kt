@@ -20,7 +20,7 @@ class CommentActivity : AppCompatActivity() {
         setComments(id)
     }
 
-    fun setComments(id: String) {
+    private fun setComments(id: String) {
         db.collection("posts").document(id).get()
             .addOnSuccessListener {
                 if (it.exists()) {
