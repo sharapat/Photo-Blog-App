@@ -28,16 +28,36 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
         this.onCommentClicked = onCommentClicked
     }
 
+    private var onLike: (model: Post) -> Unit = {}
+
+    private var onDislike: (model: Post) -> Unit = {}
+
+    fun setOnLike(onLike: (model: Post) -> Unit) {
+        this.onLike = onLike
+    }
+
+    fun setOnDislike(onDislike: (model: Post) -> Unit) {
+        this.onDislike = onDislike
+    }
+
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun populateModel(model: Post) {
             itemView.tvTheme.text = model.theme
             itemView.tvUsername.text = model.username
             itemView.tvPostText.text = model.text
+            itemView.tvLike.text = model.like.toString()
+            itemView.tvDislike.text = model.dislike.toString()
             itemView.setOnClickListener {
                 onItemClicked.invoke(model)
             }
             itemView.ivComment.setOnClickListener {
                 onCommentClicked.invoke(model)
+            }
+            itemView.ivLike.setOnClickListener {
+                onLike.invoke(model)
+            }
+            itemView.ivDislike.setOnClickListener {
+                onDislike.invoke(model)
             }
         }
     }
