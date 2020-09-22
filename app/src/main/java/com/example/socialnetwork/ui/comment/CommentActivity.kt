@@ -25,7 +25,7 @@ class CommentActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it.exists()) {
                     it.get("comments")?.let { comments ->
-                        adapter.models = comments as List<String>
+                        adapter.models = comments as List<Map<String, String>>
                     }
                 }
             }

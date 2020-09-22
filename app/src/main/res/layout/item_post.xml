@@ -70,6 +70,17 @@
         android:padding="8dp"
         android:src="@drawable/dislike"/>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivComment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:src="@drawable/comment"
+        app:layout_constraintTop_toTopOf="@id/ivDislike"
+        app:layout_constraintBottom_toBottomOf="@id/ivDislike"
+        app:layout_constraintStart_toEndOf="@id/ivDislike"
+        android:layout_marginStart="8dp"/>
+
     <TextView
         android:id="@+id/tvPostText"
         android:layout_width="0dp"

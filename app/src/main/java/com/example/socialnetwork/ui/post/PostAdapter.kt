@@ -22,6 +22,12 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
         this.onItemClicked = onItemClicked
     }
 
+    private var onCommentClicked: (model: Post) -> Unit = {}
+
+    fun setOnCommentClickListener(onCommentClicked: (model: Post) -> Unit) {
+        this.onCommentClicked = onCommentClicked
+    }
+
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun populateModel(model: Post) {
             itemView.tvTheme.text = model.theme
@@ -29,6 +35,9 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
             itemView.tvPostText.text = model.text
             itemView.setOnClickListener {
                 onItemClicked.invoke(model)
+            }
+            itemView.ivComment.setOnClickListener {
+                onCommentClicked.invoke(model)
             }
         }
     }

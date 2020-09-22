@@ -7,5 +7,6 @@ data class Post(
     var text: String = "",
     var like: Int = 0,
     var dislike: Int = 0,
-    var userId: String = ""
+    var userId: String = "",
+    var comments: MutableList<Map<String, String>> = mutableListOf()
 )
